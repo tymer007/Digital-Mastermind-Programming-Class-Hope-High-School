@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glorious Hope High School Ai Shoe Gallery</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f7ff; /* Light sky blue */
+      color: #003366; /* Dark blue text */
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #0077cc; /* Blue */
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Product Section */
+    .products {
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-card {
+      background-color: white;
+      border: 1px solid #cce7ff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-card .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-card .product-info h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #0077cc;
+    }
+
+    .product-card .product-info p {
+      font-size: 16px;
+      font-weight: bold;
+      color: #005299;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 50, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .popup-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .close-btn:hover {
+      background: #005299;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="logo">Glorious Hope High School Ai Shoe Gallery</a>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Products -->
+  <section class="products">
+    <div class="product-card" onclick="openPopup('anime-style-classic-shoe.webp')">
+      <img src="anime-style-classic-shoe.webp" alt="Shoe 1" />
+      <div class="product-info">
+        <h3>Anime Style Classic Shoe</h3>
+        <p>Designed by Shellie & Ringnan</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('chic-boot.webp')">
+      <img src="chic-boot.webp" alt="Shoe 2" />
+      <div class="product-info">
+        <h3>Chic Boot with Handbag</h3>
+        <p>Designed by Deborah & Sumdi</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('glittering-high-heel.webp')">
+      <img src="glittering-high-heel.webp" alt="Shoe 3" />
+      <div class="product-info">
+        <h3>Glittering High Heel</h3>
+        <p>Designed by Veirat & Hannah</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('pink-glittery-shoe.webp')">
+      <img src="pink-glittery-shoe.webp" alt="Pink Shoe" />
+      <div class="product-info">
+        <h3>Pink Glittery Shoe</h3>
+        <p>Designed by Jesmin and Ginika</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('regal-purple-sandal-boot.webp')">
+      <img src="regal-purple-sandal-boot.webp" alt="Purple Sandal" />
+      <div class="product-info">
+        <h3>Regal Purple Sandal Boot</h3>
+        <p>Designed by Shekinah & Miracle</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('running-shoe.webp')">
+      <img src="running-shoe.webp" alt="Running Shoe" />
+      <div class="product-info">
+        <h3>White Running Shoe</h3>
+        <p>Designed by Kemi & David</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('sparkly-high-heel.webp')">
+      <img src="sparkly-high-heel.webp" alt="Sparkly Heel" />
+      <div class="product-info">
+        <h3>Sparkly High Heel Shoe ⭐</h3>
+        <p>Designed by Ringnan</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('stylish-brown-boot.webp')">
+      <img src="stylish-brown-boot.webp" alt="Brown Boot" />
+      <div class="product-info">
+        <h3>Stylish Brown Boot</h3>
+        <p>Designed by Israel and Ruth</p>
+      </div>
+    </div>
+
+    <div class="product-card" onclick="openPopup('stylish-star-leather-boot.webp')">
+      <img src="stylish-star-leather-boot.webp" alt="Star Leather Boot" />
+      <div class="product-info">
+        <h3>Stylish Star Leather Boot</h3>
+        <p>Designed by Angel & Kyenret</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">Close</button>
+      <img src="" alt="Popup Image" id="popup-img" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Glorious Hope High School Ai Shoe Gallery. All rights reserved.</p>
+  </footer>
+
+  <!-- Internal JavaScript -->
+  <script>
+    function openPopup(imageSrc) {
+      document.getElementById('popup-img').src = imageSrc;
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
